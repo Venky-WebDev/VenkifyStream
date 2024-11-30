@@ -24,6 +24,9 @@ body {
     align-items: center; /* Horizontally center the content */
 }
 
+
+
+
 .container {
     text-align: center;
     padding: 20px;
@@ -598,4 +601,30 @@ input:focus {
 /* Liked button state */
 #likeButton.liked {
     color: red; /* Change color when liked */
+}
+
+
+/* Video container styling */
+.video-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Video styling */
+video {
+  width: 100%;
+  height: auto;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Watermark logo styling */
+.watermark-logo {
+  position: absolute;
+  width: 160px;
+  left: 15px;
+  top: -25px;
+  z-index: 1;
+  pointer-events: none;
 }
