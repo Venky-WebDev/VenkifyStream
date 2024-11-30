@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Responsive Name Display and Video</title>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="nameInput" placeholder="Enter Your Name">
+        <button id="submitButton" class="glow-on-hover" onclick="submitName()">Submit</button>
+
+        <div id="output" style="display: none;">
+            <h1 id="displayName"></h1>
+            <div class="video-wrapper" id="videoWrapper" >
+                <video id="video" width="100%" controls>
+                    <source src="assets/videos/v1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div id="videoNav" class="video-nav">
+                <!-- <button class="glow-on-hover play" onclick="prevVideo()">◁</button>
+                <button class="glow-on-hover play" onclick="nextVideo()">▷</button>
+                <button class="glow-on-hover play" onclick="refreshPage()">↺</button> -->
+            </div>
+
+
+
+
+            <button class="like-button" id="likeButton" onclick="toggleLike()">
+                <div class="like-wrapper">
+                    <div class="ripple"></div>
+                    <svg class="heart" width="24" height="24" viewBox="0 0 24 24">
+                        <path
+                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z">
+                        </path>
+                    </svg>
+                    <div class="particles" style="--total-particles: 6">
+                        <div class="particle" style="--i: 1; --color: #7642F0"></div>
+                        <div class="particle" style="--i: 2; --color: #AFD27F"></div>
+                        <div class="particle" style="--i: 3; --color: #DE8F4F"></div>
+                        <div class="particle" style="--i: 4; --color: #D0516B"></div>
+                        <div class="particle" style="--i: 5; --color: #5686F2"></div>
+                        <div class="particle" style="--i: 6; --color: #D53EF3"></div>
+                    </div>
+                </div>
+            </button>
+
+
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
