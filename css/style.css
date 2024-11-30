@@ -1,0 +1,601 @@
+@charset "UTF-8";
+*, *:before, *:after {
+  position: relative;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #FDF1F2;
+  --color-heart: #EA442B;
+  --easing: cubic-bezier(.7,0,.3,1);
+  --duration: .5s;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the content */
+    align-items: center; /* Horizontally center the content */
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Input and button styling */
+input[type="text"] {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    max-width: 300px;
+    font-size: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Output section */
+#output {
+    display: none;
+    margin-top: 20px;
+}
+
+#displayName {
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+video {
+    width: 315px;
+     height: 560px;
+    margin-top: 20px;
+    border: 2px solid #000000; /* Blue border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+}
+
+/* Desktop video navigation */
+.video-nav {
+    margin-top: 20px;
+}
+
+.video-nav button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.video-nav button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design for mobile */
+@media (max-width: 600px) {
+    input[type="text"] {
+        width: 90%;
+    }
+
+    button {
+        width: 90%;
+    }
+
+    /* Video will be full width in mobile view */
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Hide desktop navigation buttons on mobile */
+    .video-nav {
+        display: none;
+    }
+}
+
+.video-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spacing between buttons */
+    margin-top: 20px;
+}
+
+.video-nav button {
+    transition: transform 0.2s ease; /* Add a hover effect */
+}
+
+.video-nav button:hover {
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+button {
+    background-color: #444; /* Darker buttons */
+}
+
+button:hover {
+    background-color: #666; /* Slightly lighter on hover */
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    color: #fff;
+}
+
+.glow-on-hover {
+    width: 250px;
+    height: 70px;
+    border: 2px solid #ff00c8;
+    outline: none;
+    color: #ffffff;
+    background-color: #fa0000;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-size: 40px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #ffffff
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+input {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid rgb(144, 2, 135);
+    outline: none;
+    border-radius: 5px;
+    width: 250px;
+    color: #000000;
+    text-align: center;
+}
+
+input::placeholder {
+    color: #000;
+    font-weight: bold;
+}
+
+input:focus {
+    border-color: rgb(144, 2, 135);
+    box-shadow: 0 0 50px rgba(144, 2, 135, 10); /* Blue glow effect */
+}
+
+.like-icon {
+    background: none;
+    border: none;
+    color: gray; /* Inactive state */
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.like-icon.liked {
+    color: red; /* Active state */
+}
+
+/* Mobile full video width */
+@media (max-width: 600px) {
+    video {
+        width: 100%;
+        height: auto;
+    }
+}
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+    /* Set video to full screen and prevent scrolling */
+    video {
+        width: 100%;
+        height: 80vh; /* Full viewport height */
+        object-fit: cover;  /* Ensure video covers the full screen */
+        position: relative;
+        bottom: 55px;
+    }
+
+    /* Ensure heading stays centered over the video */
+    h1 {
+        font-size: 30px; /* Make heading smaller on mobile */
+        top: 20%; /* Adjust top position for better mobile appearance */
+    }
+
+    /* Hide navigation buttons in mobile view */
+    .video-nav {
+        display: none;
+    }
+
+    #displayName {
+        font-weight: bold;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        bottom: 50px;
+    }
+}
+
+
+
+
+
+.like-button {
+  font-size: 35vmin;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  z-index: 2;
+  -webkit-transition: -webkit-transform var(--duration) var(--easing);
+  transition: -webkit-transform var(--duration) var(--easing);
+  transition: transform var(--duration) var(--easing);
+  transition: transform var(--duration) var(--easing), -webkit-transform var(--duration) var(--easing);
+  cursor: pointer;
+}
+.like-button:before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.3);
+  border-radius: inherit;
+  -webkit-transition: inherit;
+  transition: inherit;
+}
+.like-button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: inherit;
+  z-index: -1;
+}
+.like-button:active:before {
+  -webkit-animation: depress-shadow var(--duration) var(--easing) both;
+          animation: depress-shadow var(--duration) var(--easing) both;
+}
+.like-button:focus:after {
+  -webkit-animation: depress var(--duration) var(--easing) both;
+          animation: depress var(--duration) var(--easing) both;
+}
+@-webkit-keyframes depress {
+  from, to {
+    -webkit-transform: none;
+            transform: none;
+  }
+  50% {
+    -webkit-transform: translateY(5%) scale(0.9);
+            transform: translateY(5%) scale(0.9);
+  }
+}
+@keyframes depress {
+  from, to {
+    -webkit-transform: none;
+            transform: none;
+  }
+  50% {
+    -webkit-transform: translateY(5%) scale(0.9);
+            transform: translateY(5%) scale(0.9);
+  }
+}
+@-webkit-keyframes depress-shadow {
+  from, to {
+    -webkit-transform: none;
+            transform: none;
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+}
+@keyframes depress-shadow {
+  from, to {
+    -webkit-transform: none;
+            transform: none;
+  }
+  50% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+}
+.like-wrapper {
+  display: grid;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  z-index: 1;
+}
+.like-wrapper > * {
+  margin: auto;
+  grid-area: 1 / 1;
+}
+
+.heart {
+  width: .5em;
+  height: .5em;
+  display: block;
+  -webkit-transform-origin: center 80%;
+          transform-origin: center 80%;
+}
+.heart > path {
+  stroke: var(--color-heart);
+  stroke-width: 2;
+  fill: transparent;
+  -webkit-transition: fill var(--duration) var(--easing);
+  transition: fill var(--duration) var(--easing);
+}
+.like-button:focus .heart > path {
+  fill: var(--color-heart);
+}
+.like-button:focus .heart {
+  -webkit-animation: heart-bounce var(--duration) var(--easing);
+          animation: heart-bounce var(--duration) var(--easing);
+}
+@-webkit-keyframes heart-bounce {
+  40% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  0%, 80%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes heart-bounce {
+  40% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  0%, 80%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/* Added wrapper to prevent layout jank with resizing particles */
+.particles {
+  width: 1px;
+  height: 1px;
+}
+
+.particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: .1em;
+  width: .1em;
+  border-radius: .05em;
+  background-color: var(--color);
+  --percentage: calc( var(--i) / var(--total-particles) );
+  --Θ: calc( var(--percentage) * 1turn );
+  -webkit-transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(0) scaleY(0);
+          transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(0) scaleY(0);
+  -webkit-transition: all var(--duration) var(--easing);
+  transition: all var(--duration) var(--easing);
+}
+.like-button:focus .particle {
+  -webkit-animation: particles-out calc(var(--duration) * 1.2) var(--easing) forwards;
+          animation: particles-out calc(var(--duration) * 1.2) var(--easing) forwards;
+}
+@-webkit-keyframes particles-out {
+  50% {
+    height: .3em;
+  }
+  50%, 60% {
+    height: .3em;
+    -webkit-transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(0.8em) scale(1);
+            transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(0.8em) scale(1);
+  }
+  60% {
+    height: .2em;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(1em) scale(0);
+            transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(1em) scale(0);
+  }
+}
+@keyframes particles-out {
+  50% {
+    height: .3em;
+  }
+  50%, 60% {
+    height: .3em;
+    -webkit-transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(0.8em) scale(1);
+            transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(0.8em) scale(1);
+  }
+  60% {
+    height: .2em;
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(1em) scale(0);
+            transform: translate(-50%, -50%) rotate(var(--Θ)) translateY(1em) scale(0);
+  }
+}
+.ripple {
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+.ripple:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0.4em solid var(--color-heart);
+  border-radius: inherit;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+.like-button:focus .ripple:before {
+  -webkit-animation: ripple-out var(--duration) var(--easing);
+          animation: ripple-out var(--duration) var(--easing);
+}
+@-webkit-keyframes ripple-out {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(5);
+            transform: scale(5);
+  }
+}
+@keyframes ripple-out {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(5);
+            transform: scale(5);
+  }
+}
+.like-body {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: var(--color-bg);
+}
+
+/* Reset the animation when clicking again! */
+.like-button:focus {
+  pointer-events: none;
+  cursor: normal;
+}
+
+@media (max-width: 767px) {
+
+    .like-button {
+        font-size: 15vmin;
+        cursor: pointer;
+        bottom: 95px;
+      }
+
+}
+
+
+/* Add transition for smooth sliding effect */
+#videoWrapper {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Left slide */
+.video-slide-left {
+    transform: translateX(-100%);
+}
+
+/* Right slide */
+.video-slide-right {
+    transform: translateX(100%);
+}
+
+/* Top slide */
+.video-slide-top {
+    transform: translateY(-100%);
+}
+
+/* Bottom slide */
+.video-slide-bottom {
+    transform: translateY(100%);
+}
+
+/* Hover effect for the wrapper during sliding */
+#videoWrapper:hover {
+    opacity: 0.8;
+}
+
+/* Hover effect for like button */
+#likeButton:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.3s;
+}
+
+/* Liked button state */
+#likeButton.liked {
+    color: red; /* Change color when liked */
+}
