@@ -6,7 +6,24 @@ const videoSources = [
     "assets/videos/v3.mp4",
     "assets/videos/v4.mp4",
     "assets/videos/v5.mp4",
-    "assets/videos/v6.mp4"
+    "assets/videos/v6.mp4",
+    "assets/videos/v7.mp4",
+    "assets/videos/v8.mp4",
+    "assets/videos/v9.mp4",
+    "assets/videos/v10.mp4",
+    "assets/videos/v11.mp4",
+    "assets/videos/v12.mp4",
+    "assets/videos/v13.mp4",
+    "assets/videos/v14.mp4",
+    "assets/videos/v15.mp4",
+    "assets/videos/v16.mp4",
+    "assets/videos/v17.mp4",
+    "assets/videos/v18.mp4",
+    "assets/videos/v19.mp4",
+    "assets/videos/v20.mp4",
+    "assets/videos/v21.mp4",
+    "assets/videos/v22.mp4"
+    
 ];
 
 let currentVideoIndex = 0; // Keeps track of the current video index
