@@ -73,8 +73,8 @@ video {
      height: 560px;
     margin-top: 20px;
     border: 2px solid #000000; /* Blue border */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+/*     border-radius: 10px;  */
+/*     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  */
 }
 
 /* Desktop video navigation */
