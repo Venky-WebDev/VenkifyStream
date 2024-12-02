@@ -1,6 +1,8 @@
 
 // Array to hold video sources
 const videoSources = [
+"assets/videos/v38.mp4",
+"assets/videos/v37.mp4",
 "assets/videos/v36.mp4",
 "assets/videos/v35.mp4",
 "assets/videos/v34.mp4",
