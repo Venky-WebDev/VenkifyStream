@@ -55,14 +55,14 @@ function submitName() {
 
         // EmailJS parameters
         const emailParams = {
-            user_name: name, // User's name
+            user_name: "name", // User's name
             admin_email: "venkateshpaidimarri2221@gmail.com" // Admin's email
            
         };
 
         // Send email via EmailJS
         emailjs
-            .send("service_qdeay3c", "template_ahgfld5", emailParams)
+            .send("service_qdeay3c", "template_58fxvdd", emailParams)
             .then(() => {
                 alert("Email sent successfully!");
             })
