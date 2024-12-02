@@ -59,6 +59,7 @@ let currentVideoIndex = 0; // Keeps track of the current video index
 const video = document.getElementById("video");
 const videoWrapper = document.getElementById("videoWrapper");
 
+// Submit Name
 function submitName() {
     const name = document.getElementById("nameInput").value;
 
@@ -68,24 +69,6 @@ function submitName() {
         video.play();
         document.getElementById("nameInput").style.display = "none";
         document.getElementById("submitButton").style.display = "none";
-
-        // EmailJS parameters
-        const emailParams = {
-            user_name: name, // User's name
-            admin_email: "venkateshpaidimarri2221@gmail.com" // Admin's email
-           
-        };
-
-        // Send email via EmailJS
-        emailjs
-            .send("service_qdeay3c", "template_58fxvdd", emailParams)
-            .then(() => {
-                alert("Email sent successfully!");
-            })
-            .catch((error) => {
-                console.error("Failed to send email:", error);
-                alert("Failed to send email. Please try again later.");
-            });
     } else {
         alert("Please enter your name.");
     }
