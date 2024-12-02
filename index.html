@@ -24,15 +24,16 @@
     <link href="css/style.css" rel="stylesheet">
     <title>VenkifyStream</title>
 
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-
-<script>
-    (function () {
-        emailjs.init("q-X5x1AMGZoQkZI6r"); // Replace with your EmailJS User ID
-    })();
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
-    
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "q-X5x1AMGZoQkZI6r",
+      });
+   })();
+</script>
 </head>
 <body>
     
