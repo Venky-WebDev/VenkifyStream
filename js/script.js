@@ -43,7 +43,6 @@ let currentVideoIndex = 0; // Keeps track of the current video index
 const video = document.getElementById("video");
 const videoWrapper = document.getElementById("videoWrapper");
 
-// Submit Name
 function submitName() {
     const name = document.getElementById("nameInput").value;
 
@@ -56,8 +55,9 @@ function submitName() {
 
         // EmailJS parameters
         const emailParams = {
-            user_name: name, // User's name
-            admin_email: "venkateshpaidimarri2221@gmail.com" // Admin's email
+            user_name: {{user_name}}, // User's name
+            admin_email: "{{admin_email}}" // Admin's email
+           
         };
 
         // Send email via EmailJS
