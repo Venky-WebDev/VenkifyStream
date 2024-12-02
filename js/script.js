@@ -55,7 +55,7 @@ function submitName() {
 
         // EmailJS parameters
         const emailParams = {
-            user_name: user_name, // User's name
+            user_name: name, // User's name
             admin_email: "venkateshpaidimarri2221@gmail.com" // Admin's email
            
         };
