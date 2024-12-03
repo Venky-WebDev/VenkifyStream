@@ -38,6 +38,10 @@ body {
     margin-top: 50px;
 }
 
+img.logo {
+    width: 261px;
+}
+
 /* Input and button styling */
 input[type="text"] {
     padding: 10px;
