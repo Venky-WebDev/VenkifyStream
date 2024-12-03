@@ -42,13 +42,30 @@
     
     <div class="container">
       
-       <form action="https://formspree.io/f/xbljqvbd" method="POST">
+<!--        <form action="https://formspree.io/f/xbljqvbd" method="POST">
     <input type="text" name="name" id="nameInput" placeholder="Enter Your Name" required>
     <button type="submit" class="glow-on-hover">Submit</button>
+</form> -->
+
+
+<form
+  action="https://formspree.io/f/xbljqvbd"method="POST"
+>
+     <label>
+    Your Name:
+     <input type="text" name="name" id="nameInput" placeholder="Enter Your Name" required>
+    </label>
+  <label>
+    Your Email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
 </form>
-
-
-
 
 
 
