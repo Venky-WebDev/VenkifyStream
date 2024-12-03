@@ -44,9 +44,7 @@
 
 
 
-<form
-  action="https://formspree.io/f/xbljqvbd"method="POST"
->
+<form  action="https://formspree.io/f/xbljqvbd"method="POST" id="nameForm">
      <label>
     Your Name:
      <input type="text" name="name" id="nameInput" placeholder="Enter Your Name" required>
@@ -58,8 +56,35 @@
 <button id="submitButton" class="glow-on-hover" onclick="submitName()">Submit</button>
 </form>
 
+<div id="responseMessage" style="display: none;">Thank you! Your name has been submitted.</div>
 
+<script>
+    document.getElementById("nameForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // Prevent the default form submission
 
+        const formData = new FormData(this);
+        const formAction = "https://formspree.io/f/YOUR_FORM_ID";
+
+        fetch(formAction, {
+            method: "POST",
+            body: formData,
+            headers: {
+                Accept: "application/json",
+            },
+        })
+            .then((response) => {
+                if (response.ok) {
+                    document.getElementById("responseMessage").style.display = "block";
+                    document.getElementById("nameForm").reset(); // Clear the form
+                } else {
+                    alert("There was a problem submitting your form.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error submitting form:", error);
+            });
+    });
+</script>
 
 
 
