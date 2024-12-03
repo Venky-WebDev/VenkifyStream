@@ -24,7 +24,7 @@
     <link href="css/style.css" rel="stylesheet">
     <title>VenkifyStream</title>
 
-<script type="text/javascript"
+<!-- <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
 <script type="text/javascript">
@@ -33,15 +33,29 @@
         publicKey: "q-X5x1AMGZoQkZI6r",
       });
    })();
-</script>
+</script> -->
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 </head>
 <body>
     
     <div class="container">
       
-        <input type="text" id="nameInput" placeholder="Enter Your Name">
-        <button id="submitButton" class="glow-on-hover" onclick="submitName()">Submit</button>
+       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="text" name="name" id="nameInput" placeholder="Enter Your Name" required>
+    <button type="submit" class="glow-on-hover">Submit</button>
+</form>
 
+
+
+
+
+
+
+
+
+        
         <div id="output" style="display: none;">
             <h1 id="displayName"></h1>
             <div class="video-wrapper" id="videoWrapper">
