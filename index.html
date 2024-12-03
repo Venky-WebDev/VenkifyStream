@@ -75,7 +75,8 @@
             .then((response) => {
                 if (response.ok) {
                     document.getElementById("responseMessage").style.display = "block";
-                    document.getElementById("nameForm").reset(); // Clear the form
+                    // document.getElementById("nameForm").reset(); 
+                    // Clear the form
                 } else {
                     alert("There was a problem submitting your form.");
                 }
