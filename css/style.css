@@ -24,12 +24,6 @@ body {
     align-items: center; /* Horizontally center the content */
 }
 
-.container-logo {
-    position: absolute;
-    left: 72px;
-    top: 30px;
-    width: 170px;
-}
 
 
 .container {
@@ -38,9 +32,7 @@ body {
     margin-top: 50px;
 }
 
-img.logo {
-    width: 261px;
-}
+
 
 /* Input and button styling */
 input[type="text"] {
