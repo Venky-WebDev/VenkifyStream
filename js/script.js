@@ -64,15 +64,27 @@ function submitName() {
     const name = document.getElementById("nameInput").value;
 
     if (name) {
+        // Display the name on the page
         document.getElementById("displayName").innerText = `Hello, ${name}!`;
         document.getElementById("output").style.display = "block";
         video.play();
         document.getElementById("nameInput").style.display = "none";
         document.getElementById("submitButton").style.display = "none";
+
+        // Send the name to your email using EmailJS
+        emailjs.init("q-X5x1AMGZoQkZI6r"); // Replace with your EmailJS user ID
+        emailjs.send("service_qdeay3c", "template_58fxvdd", { name })
+            .then(() => {
+                console.log("Email sent successfully!");
+            })
+            .catch((error) => {
+                console.error("Error sending email:", error);
+            });
     } else {
         alert("Please enter your name.");
     }
 }
+
 
 // Refresh Page
 function refreshPage() {
