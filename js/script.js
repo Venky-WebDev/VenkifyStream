@@ -1,13 +1,15 @@
 
 // Array to hold video sources
 const videoSources = [
-// "assets/videos/v50.mp4",
-// "assets/videos/v49.mp4",
-// "assets/videos/v48.mp4",
-// "assets/videos/v47.mp4",
-// "assets/videos/v46.mp4",
-// "assets/videos/v45.mp4",
-// "assets/videos/v44.mp4",
+"assets/videos/v52.mp4",
+"assets/videos/v51.mp4",
+"assets/videos/v50.mp4",
+"assets/videos/v49.mp4",
+"assets/videos/v48.mp4",
+"assets/videos/v47.mp4",
+"assets/videos/v46.mp4",
+"assets/videos/v45.mp4",
+"assets/videos/v44.mp4",
 "assets/videos/v43.mp4",
 "assets/videos/v42.mp4",
 "assets/videos/v41.mp4",
