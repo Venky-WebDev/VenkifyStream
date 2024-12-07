@@ -74,8 +74,8 @@ function submitName() {
         document.getElementById("submitButton").style.display = "none";
 
         // Send the name to your email using EmailJS
-        emailjs.init("q-X5x1AMGZoQkZI6r"); // Replace with your EmailJS user ID
-        emailjs.send("service_qdeay3c", "template_58fxvdd", { name })
+        emailjs.init(""); // Replace with your EmailJS user ID
+        emailjs.send("service", "template", { name })
             .then(() => {
                 console.log("Email sent successfully!");
             })
